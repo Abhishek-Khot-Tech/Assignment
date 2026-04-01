@@ -1,7 +1,16 @@
-"import { create } from 'zustand';
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export const useUIStore = create(
+interface UIState {
+  sidebarOpen: boolean;
+  theme: 'light' | 'dark';
+  toggleSidebar: () => void;
+  setSidebarOpen: (open: boolean) => void;
+  toggleTheme: () => void;
+  setTheme: (theme: 'light' | 'dark') => void;
+}
+
+export const useUIStore = create<UIState>()(
   persist(
     (set) => ({
       sidebarOpen: true,
@@ -39,4 +48,3 @@ export const useUIStore = create(
     }
   )
 );
-"

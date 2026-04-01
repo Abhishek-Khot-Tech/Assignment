@@ -1,4 +1,4 @@
-"import { useMutation } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { authApi } from '../../api/auth.api';
 import { useAuthStore } from '../../store/authStore';
 import toast from 'react-hot-toast';
@@ -6,13 +6,13 @@ import toast from 'react-hot-toast';
 export const useLogin = () => {
   const { setAuth } = useAuthStore();
   
-  return useMutation({
-    mutationFn: ({ email, password }) => authApi.login(email, password),
+  return useMutation<any, any, any>({
+    mutationFn: ({ email, password }: any) => authApi.login(email, password),
     onSuccess: (data) => {
       setAuth(data.data.user, data.data.accessToken);
       toast.success(data.message || 'Login successful');
     },
-    onError: (error) => {
+    onError: (error: any) => {
       toast.error(error.response?.data?.detail || 'Login failed');
     }
   });
@@ -32,4 +32,3 @@ export const useLogout = () => {
     }
   });
 };
-"

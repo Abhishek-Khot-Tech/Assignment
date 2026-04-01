@@ -1,4 +1,4 @@
-"import { useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { transactionsApi } from '../../api/transactions.api';
 
 export const useTransactions = (params) => {
@@ -14,4 +14,3 @@ export const useCategories = () => {
     queryFn: () => transactionsApi.getCategories()
   });
 };
-"

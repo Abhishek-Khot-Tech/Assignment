@@ -1,4 +1,4 @@
-"import axios from './axios';
+import axios from './axios';
 
 export const authApi = {
   login: async (email, password) => {
@@ -26,4 +26,3 @@ export const authApi = {
     return response.data;
   }
 };
-"

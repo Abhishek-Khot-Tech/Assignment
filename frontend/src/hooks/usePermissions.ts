@@ -1,4 +1,4 @@
-"import { useAuthStore } from '../store/authStore';
+import { useAuthStore } from '../store/authStore';
 
 export const usePermissions = () => {
   const user = useAuthStore((state) => state.user);
@@ -15,4 +15,3 @@ export const usePermissions = () => {
     role
   };
 };
-"

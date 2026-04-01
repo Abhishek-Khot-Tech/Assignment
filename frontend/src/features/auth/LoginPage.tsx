@@ -1,4 +1,4 @@
-"import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -32,20 +32,20 @@ export const LoginPage = () => {
   const { setAuth, isAuthenticated, setLoading } = useAuthStore();
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const from = location.state?.from?.pathname || '/dashboard';
-  
+
   useEffect(() => {
     if (isAuthenticated) {
       navigate(from, { replace: true });
     }
   }, [isAuthenticated, navigate, from]);
-  
+
   useEffect(() => {
     document.title = 'Login | JP Morgan Finance';
     setLoading(false);
   }, [setLoading]);
-  
+
   const {
     register,
     handleSubmit,
@@ -58,7 +58,7 @@ export const LoginPage = () => {
       password: ''
     }
   });
-  
+
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
@@ -79,99 +79,99 @@ export const LoginPage = () => {
       setIsSubmitting(false);
     }
   };
-  
+
   return (
-    <div className=\"min-h-screen flex\" data-testid=\"login-page\">
+    <div className="min-h-screen flex" data-testid="login-page">
       {/* Left side - Image */}
-      <div className=\"hidden lg:flex lg:w-1/2 relative\">
+      <div className="hidden lg:flex lg:w-1/2 relative">
         <img
-          src=\"https://images.unsplash.com/photo-1682531369805-344a8c91aa04?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBnbGFzcyUyMG9mZmljZSUyMGJ1aWxkaW5nJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzc1MDUwNTA0fDA&ixlib=rb-4.1.0&q=85\"
-          alt=\"Office building\"
-          className=\"absolute inset-0 w-full h-full object-cover\"
+          src="https://images.unsplash.com/photo-1682531369805-344a8c91aa04?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBnbGFzcyUyMG9mZmljZSUyMGJ1aWxkaW5nJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzc1MDUwNTA0fDA&ixlib=rb-4.1.0&q=85"
+          alt="Office building"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className=\"absolute inset-0 bg-black/40\" />
-        <div className=\"relative z-10 flex flex-col justify-end p-12\">
-          <div className=\"text-white\">
-            <h2 className=\"text-4xl font-bold tracking-tight mb-4\">Finance Dashboard</h2>
-            <p className=\"text-lg text-white/80\">Enterprise-grade financial management for modern institutions</p>
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 flex flex-col justify-end p-12">
+          <div className="text-white">
+            <h2 className="text-4xl font-bold tracking-tight mb-4">Finance Dashboard</h2>
+            <p className="text-lg text-white/80">Enterprise-grade financial management for modern institutions</p>
           </div>
         </div>
       </div>
-      
+
       {/* Right side - Login Form */}
-      <div className=\"flex-1 flex items-center justify-center bg-background p-8\">
-        <div className=\"w-full max-w-md\">
+      <div className="flex-1 flex items-center justify-center bg-background p-8">
+        <div className="w-full max-w-md">
           {/* Logo */}
-          <div className=\"flex items-center gap-3 mb-12\">
-            <div className=\"w-12 h-12 bg-primary rounded flex items-center justify-center\">
-              <span className=\"text-primary-foreground font-bold text-xl\">JP</span>
+          <div className="flex items-center gap-3 mb-12">
+            <div className="w-12 h-12 bg-primary rounded flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-xl">JP</span>
             </div>
             <div>
-              <h1 className=\"text-xl font-bold tracking-tight text-foreground\">JP Morgan</h1>
-              <p className=\"text-sm text-muted-foreground\">Finance Dashboard</p>
+              <h1 className="text-xl font-bold tracking-tight text-foreground">JP Morgan</h1>
+              <p className="text-sm text-muted-foreground">Finance Dashboard</p>
             </div>
           </div>
-          
+
           {/* Form */}
-          <div className=\"mb-8\">
-            <h2 className=\"text-2xl font-semibold tracking-tight text-foreground mb-2\">Welcome back</h2>
-            <p className=\"text-muted-foreground\">Enter your credentials to access your account</p>
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground mb-2">Welcome back</h2>
+            <p className="text-muted-foreground">Enter your credentials to access your account</p>
           </div>
-          
-          <form onSubmit={handleSubmit(onSubmit)} className=\"space-y-6\">
-            <div className=\"space-y-2\">
-              <Label htmlFor=\"email\" className=\"text-xs uppercase tracking-overline font-medium text-muted-foreground\">
+
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-xs uppercase tracking-overline font-medium text-muted-foreground">
                 Email
               </Label>
               <Input
-                id=\"email\"
-                type=\"email\"
-                placeholder=\"name@company.com\"
-                className=\"h-12\"
+                id="email"
+                type="email"
+                placeholder="name@company.com"
+                className="h-12"
                 {...register('email')}
-                data-testid=\"login-email-input\"
+                data-testid="login-email-input"
               />
               {errors.email && (
-                <p className=\"text-sm text-destructive\" data-testid=\"email-error\">{errors.email.message}</p>
+                <p className="text-sm text-destructive" data-testid="email-error">{errors.email?.message as string}</p>
               )}
             </div>
-            
-            <div className=\"space-y-2\">
-              <Label htmlFor=\"password\" className=\"text-xs uppercase tracking-overline font-medium text-muted-foreground\">
+
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-xs uppercase tracking-overline font-medium text-muted-foreground">
                 Password
               </Label>
-              <div className=\"relative\">
+              <div className="relative">
                 <Input
-                  id=\"password\"
+                  id="password"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder=\"••••••••\"
-                  className=\"h-12 pr-12\"
+                  placeholder="••••••••"
+                  className="h-12 pr-12"
                   {...register('password')}
-                  data-testid=\"login-password-input\"
+                  data-testid="login-password-input"
                 />
                 <button
-                  type=\"button\"
+                  type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className=\"absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground\"
-                  data-testid=\"toggle-password-visibility\"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  data-testid="toggle-password-visibility"
                 >
-                  {showPassword ? <EyeOff className=\"h-5 w-5\" /> : <Eye className=\"h-5 w-5\" />}
+                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
               {errors.password && (
-                <p className=\"text-sm text-destructive\" data-testid=\"password-error\">{errors.password.message}</p>
+                <p className="text-sm text-destructive" data-testid="password-error">{errors.password?.message as string}</p>
               )}
             </div>
-            
+
             <Button
-              type=\"submit\"
-              className=\"w-full h-12 text-base font-medium\"
+              type="submit"
+              className="w-full h-12 text-base font-medium"
               disabled={isSubmitting}
-              data-testid=\"login-submit-button\"
+              data-testid="login-submit-button"
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className=\"mr-2 h-5 w-5 animate-spin\" />
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                   Signing in...
                 </>
               ) : (
@@ -179,8 +179,8 @@ export const LoginPage = () => {
               )}
             </Button>
           </form>
-          
-          <p className=\"mt-8 text-center text-sm text-muted-foreground\">
+
+          <p className="mt-8 text-center text-sm text-muted-foreground">
             Protected by enterprise-grade security
           </p>
         </div>
@@ -190,4 +190,3 @@ export const LoginPage = () => {
 };
 
 export default LoginPage;
-"

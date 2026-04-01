@@ -1,4 +1,4 @@
-"import axios from './axios';
+import axios from './axios';
 
 export const usersApi = {
   getAll: async (params = {}) => {
@@ -21,4 +21,3 @@ export const usersApi = {
     return response.data;
   }
 };
-"

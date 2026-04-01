@@ -1,4 +1,4 @@
-"import axios from './axios';
+import axios from './axios';
 
 export const dashboardApi = {
   getSummary: async (params = {}) => {
@@ -26,4 +26,3 @@ export const dashboardApi = {
     return response.data;
   }
 };
-"

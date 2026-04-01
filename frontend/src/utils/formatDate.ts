@@ -1,8 +1,8 @@
-"import { format, parseISO, isValid } from 'date-fns';
+import { format, parseISO, isValid } from 'date-fns';
 
 export const formatDate = (dateString, formatStr = 'MMM d, yyyy') => {
   if (!dateString) return '';
-  
+
   try {
     const date = typeof dateString === 'string' ? parseISO(dateString) : dateString;
     if (!isValid(date)) return dateString;
@@ -29,10 +29,9 @@ export const formatInputDate = (dateString) => {
 };
 
 export const getMonthName = (monthStr) => {
-  // Convert \"2025-01\" to \"Jan\"
+  // Convert "2025-01" to "Jan"
   if (!monthStr) return '';
   const [year, month] = monthStr.split('-');
   const date = new Date(parseInt(year), parseInt(month) - 1, 1);
   return format(date, 'MMM');
 };
-"

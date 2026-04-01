@@ -1,4 +1,4 @@
-"import axios from 'axios';
+import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
@@ -87,4 +87,3 @@ axiosInstance.interceptors.response.use(
 );
 
 export default axiosInstance;
-"

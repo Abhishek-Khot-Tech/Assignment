@@ -1,4 +1,4 @@
-"import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
@@ -63,7 +63,7 @@ function App() {
       <BrowserRouter>
         <AuthInitializer>
           <Routes>
-            <Route path=\"/login\" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route
               element={
                 <ProtectedRoute>
@@ -71,17 +71,17 @@ function App() {
                 </ProtectedRoute>
               }
             >
-              <Route path=\"/dashboard\" element={<DashboardPage />} />
-              <Route path=\"/transactions\" element={<TransactionsPage />} />
-              <Route path=\"/users\" element={<UsersPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/transactions" element={<TransactionsPage />} />
+              <Route path="/users" element={<UsersPage />} />
             </Route>
-            <Route path=\"/\" element={<Navigate to=\"/dashboard\" replace />} />
-            <Route path=\"*\" element={<Navigate to=\"/dashboard\" replace />} />
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </AuthInitializer>
       </BrowserRouter>
       <Toaster
-        position=\"top-right\"
+        position="top-right"
         toastOptions={{
           duration: 4000,
           style: {
@@ -108,4 +108,3 @@ function App() {
 }
 
 export default App;
-"

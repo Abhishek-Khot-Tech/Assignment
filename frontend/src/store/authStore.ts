@@ -1,7 +1,27 @@
-"import { create } from 'zustand';
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { UserRole } from '../types/user.types';
 
-export const useAuthStore = create(
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+}
+
+interface AuthState {
+  user: User | null;
+  accessToken: string | null;
+  isAuthenticated: boolean;
+  isLoading: boolean;
+  setAuth: (user: User, accessToken: string) => void;
+  setAccessToken: (accessToken: string) => void;
+  setUser: (user: User) => void;
+  clearAuth: () => void;
+  setLoading: (isLoading: boolean) => void;
+}
+
+export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
       user: null,
@@ -38,4 +58,3 @@ export const useAuthStore = create(
     }
   )
 );
-"

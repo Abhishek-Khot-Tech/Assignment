@@ -1,4 +1,4 @@
-"export const formatCurrency = (value, currency = 'USD') => {
+export const formatCurrency = (value, currency = 'USD') => {
   if (value === null || value === undefined) return '$0.00';
   
   return new Intl.NumberFormat('en-US', {
@@ -23,4 +23,3 @@ export const formatCompactCurrency = (value, currency = 'USD') => {
   
   return formatCurrency(value, currency);
 };
-"

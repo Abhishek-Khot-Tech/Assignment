@@ -1,0 +1,120 @@
+{
+  "theme_and_archetype": {
+    "domain": "Finance, Banking",
+    "theme": "Light & Dark Mode Supported",
+    "archetype": "Archetype 4 (Swiss & High-Contrast)",
+    "reasoning": "Professional corporate (JP Morgan style) demands authority, clarity, and a function-first approach. We avoid generic SaaS styles and instead use a stark, highly legible Swiss grid system with deep Obsidian and stark Whites. We use Archetype 4 for precise data density and sharp contrast, perfect for institutional finance."
+  },
+  "typography": {
+    "fonts": {
+      "headings": "Chivo",
+      "body": "IBM Plex Sans",
+      "mono": "IBM Plex Mono",
+      "installation": "google fonts setup required"
+    },
+    "scale": {
+      "h1": "text-4xl tracking-tight font-bold",
+      "h2": "text-2xl tracking-tight font-semibold",
+      "h3": "text-xl tracking-tight font-semibold",
+      "h4": "text-base tracking-tight font-bold uppercase",
+      "body": "text-sm leading-relaxed",
+      "small_labels": "text-xs uppercase tracking-[0.15em] font-medium"
+    },
+    "rules": {
+      "anti_default": "Never use Inter or generic sans for headings. Use Chivo. Keep tracking tight on headings.",
+      "overlines": "Use small_labels format for chart titles, table headers, and KPI descriptors."
+    }
+  },
+  "colors": {
+    "light": {
+      "background": "#FAFAFA",
+      "surface": "#FFFFFF",
+      "primary": "#0A2540",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#F1F5F9",
+      "secondary_foreground": "#0F172A",
+      "border": "#E2E8F0",
+      "text": "#111827",
+      "muted": "#64748B",
+      "success": "#059669",
+      "danger": "#DC2626"
+    },
+    "dark": {
+      "background": "#0A0B10",
+      "surface": "#12141D",
+      "primary": "#3B82F6",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#1E212B",
+      "secondary_foreground": "#F8FAFC",
+      "border": "#222530",
+      "text": "#F3F4F6",
+      "muted": "#94A3B8",
+      "success": "#10B981",
+      "danger": "#EF4444"
+    },
+    "rules": {
+      "contrast": "Always maintain high contrast. Text on dark background must be at least F3F4F6.",
+      "accents": "Limit vibrant highlights to green/red for profit/loss metrics.",
+      "neutral_tint": "Dark mode background is not pure black, it's a very deep blue-tinted obsidian."
+    }
+  },
+  "layout_and_spacing": {
+    "grid_system": "MODE B: THE CONTROL ROOM GRID",
+    "spacing_scale": "Tight (gap-4 or gap-6) for dashboards to maximize data density. But generous internal padding.",
+    "rules": {
+      "dashboard_grid": "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4",
+      "widget_stretch": "Use h-full on children to ensure they stretch to match their neighbors. No jagged bottoms.",
+      "container": "Max-width 100%, full bleed inside the app shell.",
+      "padding": "Generous internal padding inside widgets (p-6) to prevent text collision with the 1px borders."
+    }
+  },
+  "surface_and_materials": {
+    "style": "GRID BORDERS (The Technical Look)",
+    "rules": {
+      "cards": "Flat background, 1px subtle border (border-border), zero radius (rounded-none) or max 2px. No floating soft shadows. Cardless dashboard preferred (just borders).",
+      "headers": "Solid background with a hard 1px bottom border. No glassmorphism for finance, it feels too clinical. Pure solid surfaces.",
+      "hover_states": "Slight lift (-translate-y-[1px]) and border color darkens on hover for interactive elements."
+    }
+  },
+  "components": {
+    "shadcn_customization": {
+      "radius": "0rem or 0.125rem (sharp corners)",
+      "buttons": "Flat, sharp edges. Primary button uses primary color, no gradient.",
+      "inputs": "1px border, background matches surface, sharp focus ring (focus:ring-primary focus:ring-offset-1 focus:ring-1).",
+      "tables": "Dense. border-collapse style. 1px borders on bottom of every row. Header is small_labels typography.",
+      "charts": "Recharts. Use sharp angles where possible. Monotone or straight line types. Colors match success/danger or primary/muted for generic data. Always format tooltip values as currency."
+    },
+    "icons": {
+      "library": "lucide-react",
+      "usage": "Use sparingly. Mostly for trend arrows (ArrowUpRight/ArrowDownRight) and sidebar nav."
+    }
+  },
+  "motion_and_interactions": {
+    "rules": {
+      "hover": "Explicitly set text color and background on hover (e.g., hover:bg-secondary hover:text-primary).",
+      "focus": "High contrast focus rings. focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background.",
+      "loading": "Use sharp, rectangular skeleton blocks with a subtle pulse animation."
+    }
+  },
+  "media": {
+    "login_background": {
+      "url": "https://images.unsplash.com/photo-1682531369805-344a8c91aa04?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBnbGFzcyUyMG9mZmljZSUyMGJ1aWxkaW5nJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzc1MDUwNTA0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract reflective glass facade reflecting the sky, used for the left-side split panel on the login screen to evoke corporate scale.",
+      "overlay": "bg-black/40 (if dark mode) or bg-white/20 (if light mode) to maintain corporate feel without obscuring."
+    }
+  },
+  "page_specific_instructions": {
+    "login": "Split screen layout. Left side: full-height image. Right side: centered auth form, perfectly vertical alignment. Form inputs must be large (h-12) and sharp.",
+    "app_shell": "Collapsible sidebar on left (border-r border-border). Top header with Dark Mode toggle and User Profile dropdown (border-b border-border).",
+    "dashboard": "4 KPI Cards (Total Income, Total Expenses, Net Balance, Transaction Count) at top. Below: Monthly Trends ComposedChart spanning 2 or 3 columns, Category PieChart spanning 1 column. Bottom: Recent Activity table. Use 1px left-border highlights (e.g. border-l-4 border-l-primary) on KPI widgets to ground them.",
+    "transactions": "Full-width filter bar above the table. Table must be highly scannable with alternating row backgrounds or sharp 1px borders. Status/Type column uses colored text (green/red) rather than heavy pill badges.",
+    "users": "Admin only table. Clean role badges (small, sharp borders). Toggle switch for active/inactive status."
+  },
+  "testing": {
+    "rules": "All interactive and key informational elements MUST include a data-testid attribute using kebab-case role-based naming (e.g., login-submit-button, dashboard-total-income-kpi)."
+  },
+  "file_system": {
+    "rule": "Use .js/.jsx extensions strictly for all files containing React logic/components, NOT .tsx or .ts, as per problem statement requirements."
+  }
+}
+
