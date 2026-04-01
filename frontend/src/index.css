@@ -1,0 +1,117 @@
+"@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 98%;
+        --foreground: 220 13% 10%;
+        --card: 0 0% 100%;
+        --card-foreground: 220 13% 10%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 220 13% 10%;
+        --primary: 213 94% 15%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 214 32% 96%;
+        --secondary-foreground: 222 47% 11%;
+        --muted: 214 32% 96%;
+        --muted-foreground: 215 16% 47%;
+        --accent: 214 32% 96%;
+        --accent-foreground: 222 47% 11%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 214 32% 89%;
+        --input: 214 32% 89%;
+        --ring: 213 94% 15%;
+        --success: 160 84% 39%;
+        --success-foreground: 0 0% 100%;
+        --chart-1: 160 84% 39%;
+        --chart-2: 0 84% 60%;
+        --chart-3: 217 91% 60%;
+        --chart-4: 43 96% 58%;
+        --chart-5: 262 83% 58%;
+        --radius: 0.125rem;
+    }
+    
+    .dark {
+        --background: 230 17% 4%;
+        --foreground: 210 17% 95%;
+        --card: 230 18% 8%;
+        --card-foreground: 210 17% 95%;
+        --popover: 230 18% 8%;
+        --popover-foreground: 210 17% 95%;
+        --primary: 217 91% 60%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 230 16% 14%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 230 16% 14%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 230 16% 14%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 63% 55%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 230 16% 16%;
+        --input: 230 16% 16%;
+        --ring: 217 91% 60%;
+        --success: 160 84% 45%;
+        --success-foreground: 0 0% 100%;
+        --chart-1: 160 84% 45%;
+        --chart-2: 0 63% 55%;
+        --chart-3: 217 91% 60%;
+        --chart-4: 43 96% 58%;
+        --chart-5: 262 83% 58%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground antialiased;
+        font-family: 'IBM Plex Sans', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Chivo', sans-serif;
+    }
+    code, pre {
+        font-family: 'IBM Plex Mono', monospace;
+    }
+}
+
+@layer utilities {
+    .text-success {
+        color: hsl(var(--success));
+    }
+    .bg-success {
+        background-color: hsl(var(--success));
+    }
+    .text-income {
+        @apply text-emerald-600 dark:text-emerald-400;
+    }
+    .text-expense {
+        @apply text-red-600 dark:text-red-400;
+    }
+    .tracking-overline {
+        letter-spacing: 0.15em;
+    }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+}
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+}
+"
